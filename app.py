@@ -8,7 +8,7 @@ def notes():
     folder_path = "static/notes/physics"
     if os.path.exists(folder_path):
         file_names = sorted(os.listdir(folder_path))
-        files = [(i," ".join(f.split(" ")[1::]).split(".")[0]) for i,f in enumerate(file_names,start=1)]
+        files = [(i,f.split(".")[0]) for i,f in enumerate(file_names,start=1)]
         links = [f"{folder_path}/{file}" for file in file_names]
         files_phy=zip(files,links)
     return render_template("notes.html", active="notes",files_phy=files_phy)
